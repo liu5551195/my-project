@@ -31,8 +31,39 @@ function loadPosts() {
   });
 }
 
+// 页面加载进度条
+function initProgressBar() {
+  const progressBar = document.querySelector('.progress-bar');
+  
+  // 模拟页面加载进度
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += 10;
+    progressBar.style.width = progress + '%';
+    
+    if (progress >= 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        progressBar.style.opacity = '0';
+      }, 300);
+    }
+  }, 100);
+}
+
+// 页面切换动画
+function initPageTransition() {
+  const mainContent = document.querySelector('main');
+  mainContent.classList.add('page-transition');
+  
+  setTimeout(() => {
+    mainContent.classList.add('enter');
+  }, 50);
+}
+
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
+  initPageTransition();
+  initProgressBar();
   loadPosts();
   
   // 添加导航栏交互

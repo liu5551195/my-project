@@ -147,6 +147,56 @@ button[type="submit"]:hover {
   color: #4CAF50;
 }
 
+/* 加载进度条 */
+.progress-container {
+  width: 100%;
+  height: 4px;
+  background: #f1f1f1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #4CAF50;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+/* 暗黑模式 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  nav a {
+    color: #e0e0e0;
+  }
+  
+  h1 {
+    color: #e0e0e0;
+  }
+  
+  .progress-container {
+    background: #333;
+  }
+}
+
+/* 页面切换动画 */
+.page-transition {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-transition.enter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   nav {
